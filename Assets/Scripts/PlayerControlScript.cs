@@ -4,13 +4,18 @@ using System.Collections;
 
 
 public class PlayerControlScript : MonoBehaviour{
-	public float walkSpeed = 1f; //movement speed of the player
+	public float walkSpeed = 3.5f; //movement speed of the player
+
+
+	void Start(){
+
+	}
 
 
 	void Update(){
 		//WASD Controls
 
-		if (Input.GetKey (KeyCode.D)) {
+		 if (Input.GetKey (KeyCode.D)) {
 			transform.position += new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
 		} 
 		 if (Input.GetKey (KeyCode.A)) {
@@ -23,7 +28,7 @@ public class PlayerControlScript : MonoBehaviour{
 			transform.position -= new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
 		}
 
-		//Arrow Key Controls 
+		//arrow key controls 
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			transform.position += new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
@@ -37,7 +42,5 @@ public class PlayerControlScript : MonoBehaviour{
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			transform.position -= new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
 		}
-
-	}
-
 		}
+	}
