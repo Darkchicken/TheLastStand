@@ -1,15 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControlScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+
+public class PlayerControlScript : MonoBehaviour{
+	public float walkSpeed = 1f; //movement speed of the player
+
+
+	void Update(){
+		//WASD Controls
+
+		if (Input.GetKey (KeyCode.D)) {
+			transform.position += new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
+		} 
+		 if (Input.GetKey (KeyCode.A)) {
+			transform.position -= new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
+		} 
+		 if (Input.GetKey (KeyCode.W)) {
+			transform.position += new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
+		} 
+		 if (Input.GetKey (KeyCode.S)) {
+			transform.position -= new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
+		}
+
+		//Arrow Key Controls 
+
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			transform.position += new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
+		} 
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			transform.position -= new Vector3 (walkSpeed * Time.deltaTime, 0.0f, 0.0f);
+		} 
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			transform.position += new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
+		} 
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			transform.position -= new Vector3 (0.0f,walkSpeed * Time.deltaTime, 0.0f);
+		}
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-}
+
+		}
