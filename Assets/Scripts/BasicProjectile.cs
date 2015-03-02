@@ -15,7 +15,7 @@ public class BasicProjectile : MonoBehaviour, IPoolableObject
     private double selfDestructTime;
     private double currentTime;
 
-    private GenericEnemy firingEntity;
+    private GenericCharacter firingEntity;
 
 	// Use this for initialization
 	void Start () 
@@ -34,7 +34,7 @@ public class BasicProjectile : MonoBehaviour, IPoolableObject
         }
 	}
 
-    public void SpawnArrow(double time, GenericEnemy entity)
+    public void SpawnArrow(double time, GenericCharacter entity)
     {
         timeSpawned = time;
         currentTime = 0f;
