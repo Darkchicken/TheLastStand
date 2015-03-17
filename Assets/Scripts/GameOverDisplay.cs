@@ -12,4 +12,8 @@ public class GameOverDisplay : MonoBehaviour {
 	{
 		Application.Quit ();
 	}
+	public void onClickSelect()
+	{
+		Application.LoadLevel ("LevelSelect");
+	}
 }
