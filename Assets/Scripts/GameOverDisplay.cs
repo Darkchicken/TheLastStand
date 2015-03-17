@@ -17,4 +17,8 @@ public class GameOverDisplay : MonoBehaviour {
 	{
 		Application.LoadLevel ("LevelSelect");
 	}
+	public void onClickStart()
+	{
+		Application.LoadLevel ("StartMenu");
+	}
 }
