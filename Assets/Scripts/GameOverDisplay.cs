@@ -7,6 +7,7 @@ public class GameOverDisplay : MonoBehaviour {
 	public void OnClickRetry()
 	{
 		Application.LoadLevel("BasicLevel");
+		//needs to look @ PlayerPrefs and load where player died last
 	}
 	public void OnClickQuit()
 	{
