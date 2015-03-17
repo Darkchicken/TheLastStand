@@ -4,9 +4,17 @@ using System.Collections;
 public class TripleShotEnemyScript : GenericCharacter {
 				
 		Vector3 arrowDirMain, arrowDirLeft, arrowDirRight;
+        public int killValue;
+        private KillCount killCount;
 		
 		// Use this for initialization
 		void Start () {
+            GameObject killCountObject = GameObject.FindWithTag("KillCount");
+            if (killCountObject != null)
+            {
+                killCount = killCountObject.GetComponent<KillCount>();
+            }
+
 			theta = new Vector3(0, 0, Random.value*360);
 			arrowDirMain = new Vector3 (Mathf.Cos(theta.z * Mathf.PI / 180), Mathf.Sin(theta.z * Mathf.PI / 180));
 			arrowDirLeft = new Vector3 (Mathf.Cos((theta.z + 30) * Mathf.PI / 180), Mathf.Sin(theta.z * Mathf.PI / 180));
@@ -34,5 +42,6 @@ public class TripleShotEnemyScript : GenericCharacter {
 		void OnColliderEnter2D(Collider col) {
 			health--;
 			RePool(col.gameObject);
+            killCount.AddKills(killValue);
 		}
 	}

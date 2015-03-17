@@ -4,6 +4,17 @@ using System.Collections;
 public class TrackingEnemy : GenericCharacter {
 	Vector3 playerPosition, diff;
 	float rotation;
+    public int killValue;
+    private KillCount killCount;
+
+    void Start()
+    {
+        GameObject killCountObject = GameObject.FindWithTag("KillCount");
+        if (killCountObject != null)
+        {
+            killCount = killCountObject.GetComponent<KillCount>();
+        }
+    }
 	
 	
 	// Update is called once per frame
@@ -47,6 +58,7 @@ public class TrackingEnemy : GenericCharacter {
 		{
 			health--;
 			RePool(col.gameObject);
+            killCount.AddKills(killValue);
 		}
 	}
 	

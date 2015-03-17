@@ -5,8 +5,16 @@ public class GenericEnemy : GenericCharacter {
 	// Use this for initialization
 	public Transform sightStart, sightEnd;
 	public bool playerInSight = false;
+	public int killValue;
+	private KillCount killCount;
+
 	void Start () 
 	{
+		GameObject killCountObject = GameObject.FindWithTag ("KillCount");
+		if (killCountObject != null)
+		{
+			killCount = killCountObject.GetComponent <KillCount> ();
+		}
 		theta = new Vector3(0, 0, 0);//z value controls rotation, 0 is facing to the right
 		//transform.Rotate(theta);
 	}
@@ -36,6 +44,7 @@ public class GenericEnemy : GenericCharacter {
 		{
 			health--;
 			RePool(col.gameObject);
+			killCount.AddKills(killValue);
 		}
 	}
 
