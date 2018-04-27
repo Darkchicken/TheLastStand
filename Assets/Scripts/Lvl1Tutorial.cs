@@ -10,6 +10,7 @@ public class Lvl1Tutorial : MonoBehaviour {
 	public bool tutArrowCaught = false;
 	public bool displayText2 = true;
 	public bool displayText3 = true;
+	public float ControllsReminderTime;
 	//these are the spawn points in the level
 	public GameObject s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
 	//tutorialSpawn.GetComponent<SpawnPoint>().EnemyCheck == false
@@ -74,5 +75,23 @@ public class Lvl1Tutorial : MonoBehaviour {
 	void RemoveText()
 	{
 		tutorialText3.gameObject.SetActive(false);
+		StartCoroutine(CoWaitToRemindControlls());
+	}
+
+	IEnumerator CoWaitToRemindControlls()
+	{
+		while(true)
+		{
+			yield return new WaitForSeconds(ControllsReminderTime);
+			tutorialText.gameObject.SetActive(true);
+			yield return new WaitForSeconds(8);
+			tutorialText.gameObject.SetActive(false);
+			tutorialText2.gameObject.SetActive(true);
+			yield return new WaitForSeconds(8);
+			tutorialText2.gameObject.SetActive(false);
+			tutorialText3.gameObject.SetActive(true);
+			yield return new WaitForSeconds(8);
+			tutorialText3.gameObject.SetActive(false);
+		}
 	}
 }
