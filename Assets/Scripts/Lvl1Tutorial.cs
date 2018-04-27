@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class Lvl1Tutorial : MonoBehaviour {
 	
 	public GameObject tutorialSpawn;
-	public Text tutorialText, tutorialText2, tutorialText3;
+	public Text tutorialText, tutorialText2, tutorialText3, tutorialText4;
 	public bool tutEnemyDead = false;
 	public bool tutArrowCaught = false;
 	public bool displayText2 = true;
 	public bool displayText3 = true;
-	//these are the spawn points in the level
-	public GameObject s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
+    public bool displayText4 = true;
+    //these are the spawn points in the level
+    public GameObject s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
 	//tutorialSpawn.GetComponent<SpawnPoint>().EnemyCheck == false
 	void Start () 
 	{
@@ -55,9 +56,16 @@ public class Lvl1Tutorial : MonoBehaviour {
 			s11.SetActive(true);
 			s12.SetActive(true);
 		}
+        if (displayText4 == true)
+        {
+            Invoke("DisplayPauseText", 1.0f);
+            displayText4 = false;
+            Invoke("RemovePauseText", 3.0f);
+        }
 
-	}
-	void DisplayCatchText()
+
+    }
+    void DisplayCatchText()
 	{
 		tutorialText.gameObject.SetActive(true);
 	}
@@ -71,8 +79,16 @@ public class Lvl1Tutorial : MonoBehaviour {
 		//tutEnemyDead = false;
 		tutorialText3.gameObject.SetActive(true);
 	}
-	void RemoveText()
+    void DisplayPauseText()
+    {
+        tutorialText4.gameObject.SetActive(true);
+    }
+    void RemoveText()
 	{
 		tutorialText3.gameObject.SetActive(false);
 	}
+    void RemovePauseText()
+    {
+        tutorialText4.gameObject.SetActive(false);
+    }
 }
